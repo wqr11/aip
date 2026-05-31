@@ -148,7 +148,7 @@ int main()
     std::cout << "sum(3.5, 2.7) = " << sum(3.5, 2.7) << std::endl;
 
     Fraction f4(1, 1, 2);
-    std::cout << "sum(2.3, &f4) = " << sum(2.3, &f4) << std::endl;
+    std::cout << "sum(2.3, 1 1/2) = " << sum(2.3, &f4) << std::endl;
 
     Fraction f5(1, 1, 3);
     Fraction f6(2, 15, 24);
