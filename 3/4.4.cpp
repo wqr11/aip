@@ -1,56 +1,53 @@
 #include <iostream>
-#include <cmath>
 
-using std::cin;
-using std::cout;
-using std::min;
+double min(double x, double y)
+{
+    return x < y ? x : y;
+}
+
+using namespace std;
 
 int main()
 {
-    int N = 0;
-    int count = 0;
-    double EM = 0.0, EN = 0.0;
-    double max_s_reduction = 0.0;
-    double total_s_thrown = 0.0;
+    int N;
+    long long EM, EN;
 
-    std::cout << "N = ";
-    std::cin >> N;
+    cout << "N = ";
+    cin >> N;
 
-    std::cout << "(m,n) = ";
+    cout << "(m,n):\n";
+    cin >> EM >> EN;
 
-    std::cin >> EM;
-    std::cin >> EN;
+    long long total_s_cut = 0;
+    long long total_s_thrown = 0;
+    long long max_s_cut = 0;
 
-    --N;
-    ++count;
-
-    while (N > 0)
+    for (int i = 1; i < N; ++i)
     {
-        double m = 0.0, n = 0.0;
+        long long m, n;
+        cin >> m >> n;
 
-        std::cin >> m;
-        std::cin >> n;
+        long long k = min(m / EM, n / EN);
 
-        /**
-         * По условию задачи не ясно, какие пластины отбрасывать.
-         * Поэтому, отбрасываем те, где k - не целое число
-         */
-        double k = min(EM / m, EN / n);
-
-        if (int(k) != k)
+        if (k == 0)
         {
-            if (m * n > max_s_reduction)
-            {
-                max_s_reduction = m * n;
-            }
             total_s_thrown += m * n;
         }
         else
         {
-
-            ++count;
+            // Пластину обрезаем до размеров (k*M) x (k*N)
+            long long cut_area = m * n - k * k * EM * EN;
+            total_s_cut += cut_area;
+            if (cut_area > max_s_cut)
+            {
+                max_s_cut = cut_area;
+            }
         }
-
-        --N;
     }
+
+    cout << "а) Обработано: " << N << " пластинок(-ки)\n";
+    cout << "б) Максимальная площадь обрезки: " << max_s_cut << "\n";
+    cout << "в) Общая площадь обрезки: " << total_s_cut + total_s_thrown << "\n";
+
+    return 0;
 }

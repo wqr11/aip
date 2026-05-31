@@ -19,10 +19,6 @@ int main()
 
     bool was_one = false;
 
-    /**
-     * Есть другие способы, но в данном случае
-     * окей, т.к сложность все равно O(1), т.к sizeof(int) - константа для платформы
-     */
     constexpr int intsize = sizeof(n);
 
     for (int i = 0; i < intsize; i++)
