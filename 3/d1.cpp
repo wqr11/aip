@@ -9,15 +9,21 @@ int main()
 
     int total = 0;
     int boxes_opened = 0;
+    int max_chips = 0;
+    int total_chips = 0;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; ++i)
     {
         if (chips[i] == 0)
         {
             break;
         }
         total += money[i];
-        boxes_opened++;
+        total_chips += chips[i];
+        if (chips[i] > max_chips) {
+            max_chips = chips[i];
+        }
+        ++boxes_opened;
     }
 
     cout << "Открыто шкатулок: " << boxes_opened << endl;
@@ -25,7 +31,7 @@ int main()
 
     if (boxes_opened >= 2)
     {
-        cout << "Максимальный выигрыш: " << total << endl;
+        cout << "Максимальный выигрыш: " << static_cast<double>(total) * max_chips / total_chips << endl;
     }
     else
     {
