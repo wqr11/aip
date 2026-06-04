@@ -1,10 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using std::cin;
-using std::cout;
-using std::log;
-using std::pow;
+using namespace std;
 
 /**
  * С использованием беззнакового 8-байтового числа

@@ -1,9 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using std::pow;
-using std::tan;
-
+using namespace std;
 const double EULER = 2.71828;
 
 double z(double x, double a, double b)

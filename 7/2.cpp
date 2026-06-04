@@ -1,9 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 
-using std::cin;
-using std::cout;
-
+using namespace std;
 void find_most_encountered_char(char *s, char &mes, int &count)
 {
     std::unordered_map<char, int> m;

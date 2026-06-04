@@ -1,9 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using std::cin;
-using std::cout;
-
+using namespace std;
 int main()
 {
     int n;

@@ -1,9 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using std::cin;
-using std::cout;
-
+using namespace std;
 constexpr int INTSIZE = sizeof(int) * 8;
 constexpr int DIM = 10;
 

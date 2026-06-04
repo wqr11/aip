@@ -1,10 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using std::cin;
-using std::cout;
-using std::printf;
-
+using namespace std;
 double sidelen(double a1, double a2)
 {
     double r = a1 - a2;

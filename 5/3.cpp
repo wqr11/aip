@@ -1,10 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using std::cin;
-using std::cout;
-using std::fabs;
-
+using namespace std;
 const double eps = 1e-8;
 
 double dist(double x1, double y1, double x2, double y2)

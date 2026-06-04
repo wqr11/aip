@@ -3,9 +3,7 @@
 #include <ctime>
 #include <unordered_map>
 
-using std::cin;
-using std::cout;
-
+using namespace std;
 constexpr int GROUPS = 5;
 constexpr int STUDENTS_IN_GROUP = 20;
 constexpr int QUESTIONS = 20;

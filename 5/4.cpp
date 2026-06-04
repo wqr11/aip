@@ -3,9 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 
-using std::cin;
-using std::cout;
-
+using namespace std;
 const int a1 = -2;
 const int a2 = 2;
 const int b1 = -2;

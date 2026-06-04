@@ -1,11 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using std::cin;
-using std::cout;
-using std::log;
-using std::pow;
-
+using namespace std;
 long double fact(int N, long double *arr)
 {
     long double r = 0.0;

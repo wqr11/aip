@@ -1,10 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using std::cin;
-using std::cout;
-using std::sqrt;
-
+using namespace std;
 bool is_sqrt_of_even(int a)
 {
     /**

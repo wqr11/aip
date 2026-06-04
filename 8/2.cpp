@@ -1,9 +1,7 @@
 #include <iostream>
 #include <cstring>
 
-using std::cin;
-using std::cout;
-
+using namespace std;
 typedef unsigned short int uint16;
 typedef unsigned int uint32;
 
