@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     double a[3];
-    cout << "Стороны треугольника: ";
+    cout << "(a,b,c) = ";
     cin >> a[0] >> a[1] >> a[2];
 
     double med[3];

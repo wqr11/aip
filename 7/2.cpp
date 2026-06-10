@@ -1,31 +1,26 @@
 #include <iostream>
-#include <unordered_map>
 
 using namespace std;
+
 void find_most_encountered_char(char *s, char &mes, int &count)
 {
-    std::unordered_map<char, int> m;
-
     int i = 0;
+
+    int char_encounter_map[256] = {0};
+
     while (s[i] != 0)
     {
-        if (m.find(s[i]) != m.end())
-        {
-            ++m.at(s[i]);
-        }
-        else
-        {
-            m[s[i]] = 1;
-        };
+        ++char_encounter_map[s[i]];
         ++i;
     }
 
-    for (auto i = m.cbegin(); i != m.cend(); ++i)
+    for (int i = 0; i < 256; ++i)
     {
-        if (i->second > count)
+        int cur_count = char_encounter_map[i];
+        if (cur_count > count)
         {
-            count = i->second;
-            mes = i->first;
+            count = cur_count;
+            mes = i;
         }
     }
 }

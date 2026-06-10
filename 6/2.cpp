@@ -2,14 +2,14 @@
 #include <cmath>
 
 using namespace std;
+
 constexpr int INTSIZE = sizeof(int) * 8;
 constexpr int DIM = 10;
 
-// O(1)
 int count_bits(unsigned int value)
 {
     int c = 0;
-    for (int i = 0; i < INTSIZE; ++i)
+    for (int i = 0; i < sizeof(int) * 8; ++i)
     {
         c += (value >> i) & 1;
     }

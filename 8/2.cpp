@@ -2,72 +2,33 @@
 #include <cstring>
 
 using namespace std;
-typedef unsigned short int uint16;
-typedef unsigned int uint32;
-
-class str
-{
-private:
-    uint32 size = 0;
-    uint32 capacity = 1024;
-    char *s = new char[capacity]();
-
-public:
-    str() {}
-    str(const char *news) { *this = news; }
-
-    char *tocharptr() { return this->s; }
-
-    bool startswith(const char *prefix)
-    {
-        int len = strlen(prefix);
-        return strncmp(s, prefix, len) == 0;
-    }
-
-    str &operator=(const char *news)
-    {
-        int len = strlen(news);
-        while (capacity <= (uint32)len)
-        {
-            capacity *= 2;
-            char *new_s = new char[capacity]();
-            memmove(new_s, s, size);
-            delete[] s;
-            s = new_s;
-        }
-        memset(s, 0, size);
-        memmove(s, news, len);
-        size = len;
-        return *this;
-    }
-
-    ~str()
-    {
-        delete[] s;
-        s = nullptr;
-    }
-};
 
 struct DVD
 {
-    str *album;
-    str *author;
-    str *style;
-    uint16 year;
-    uint16 duration;
-    uint32 price;
+    char *album;
+    char *author;
+    char *style;
+    int year;
+    int duration;
+    int price;
 
     ~DVD()
     {
-        delete album;
-        delete author;
-        delete style;
+        delete[] album;
+        delete[] author;
+        delete[] style;
     }
 };
 
+bool startswith(const char *str, const char *prefix)
+{
+    int len = strlen(prefix);
+    return strncmp(str, prefix, len) == 0;
+}
+
 int partition(DVD **arr, int l, int r)
 {
-    uint32 pivot = arr[(l + r) / 2]->price;
+    int pivot = arr[(l + r) / 2]->price;
     int i = l - 1;
     int j = r + 1;
     while (true)
@@ -109,7 +70,7 @@ int filter_by_author(DVD **src, DVD **dest, int size)
     int cur_dest = 0;
     for (int i = 0; i < size; ++i)
     {
-        if (src[i]->author->startswith("Б"))
+        if (startswith(src[i]->author, "Б"))
         {
             dest[cur_dest] = src[i];
             ++cur_dest;
@@ -128,10 +89,19 @@ int main()
     for (int i = 0; i < N; ++i)
     {
         char album[1024], author[1024], style[1024];
-        uint16 year(0), duration(0);
-        uint32 price(0);
+        int year(0), duration(0);
+        int price(0);
         cin >> album >> author >> style >> year >> duration >> price;
-        arr[i] = new DVD{new str(album), new str(author), new str(style), year, duration, price};
+
+        char *album_copy = new char[strlen(album) + 1];
+        char *author_copy = new char[strlen(author) + 1];
+        char *style_copy = new char[strlen(style) + 1];
+
+        strcpy(album_copy, album);
+        strcpy(author_copy, author);
+        strcpy(style_copy, style);
+
+        arr[i] = new DVD{album_copy, author_copy, style_copy, year, duration, price};
     }
 
     DVD **newarr = new DVD *[N];
@@ -142,9 +112,9 @@ int main()
 
     for (int i = 0; i < filtered_size; ++i)
     {
-        cout << newarr[i]->album->tocharptr() << " "
-             << newarr[i]->author->tocharptr() << " "
-             << newarr[i]->price << "\n";
+        cout << newarr[i]->album << " "
+             << newarr[i]->author << " "
+             << newarr[i]->price << '\n';
     }
 
     for (int i = 0; i < N; ++i)

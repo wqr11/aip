@@ -2,6 +2,7 @@
 #include <cstring>
 
 using namespace std;
+
 struct Student
 {
     char surname[50];
@@ -65,7 +66,7 @@ int main()
     cout << "Факультеты и количество студентов:\n";
     for (int i = 0; i < faculties_count; ++i)
     {
-        cout << faculties[i].name << ": " << faculties[i].count << "\n";
+        cout << faculties[i].name << ": " << faculties[i].count << '\n';
     }
 
     return 0;

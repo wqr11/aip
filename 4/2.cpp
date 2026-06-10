@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 
 using namespace std;
 
@@ -16,8 +15,6 @@ int main()
 
     U = 1.0;
     S = U;
-
-    cout << setprecision(6);
 
     cout << "n = " << n << ", U = " << U << ", S = " << S << endl;
 

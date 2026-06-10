@@ -2,10 +2,11 @@
 #include <cmath>
 
 using namespace std;
+
 bool is_sqrt_of_even(int a)
 {
     /**
-     * False, если:
+     * false, если:
      * 1) a < 0 - квадрат обязан быть не меньше 0
      * 2) квадрат нечетный
      */
@@ -15,7 +16,7 @@ bool is_sqrt_of_even(int a)
         return false;
     }
 
-    int root = (int)sqrt(a);
+    int root = static_cast<int>(sqrt(a));
 
     return root * root == a && root % 2 == 0;
 }
@@ -28,8 +29,10 @@ int main()
 
     int res = 0;
 
-    for (int i = N - 1, a = 0; i >= 0; --i)
+    for (int i = N - 1; i >= 0; --i)
     {
+        int a;
+
         cin >> a;
 
         if (is_sqrt_of_even(a))
@@ -38,5 +41,5 @@ int main()
         }
     }
 
-    std::cout << "res = " << res << std::endl;
+    cout << "res = " << res << endl;
 }

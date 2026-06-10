@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 class CNumber
 {
 public:
@@ -61,7 +63,7 @@ public:
     {
         if (size_i != other.size_i || size_j != other.size_j || size_k != other.size_k)
         {
-            throw std::runtime_error("Matrices dimensions do not match!");
+            throw runtime_error("Matrices dimensions do not match!");
         }
 
         Mat r(size_i, size_j, size_k);
@@ -81,7 +83,7 @@ public:
     {
         if (size_i != other.size_i || size_j != other.size_j || size_k != other.size_k)
         {
-            throw std::runtime_error("Matrices dimensions do not match!");
+            throw runtime_error("Matrices dimensions do not match!");
         }
 
         Mat r(size_i, size_j, size_k);
@@ -101,23 +103,23 @@ public:
     {
         for (int i = 0; i < size_i; ++i)
         {
-            std::cout << "Слой x=" << i << ":" << std::endl;
+            cout << "Слой x=" << i << ":" << endl;
             for (int j = 0; j < size_j; ++j)
             {
-                std::cout << "  y=" << j << ": ";
+                cout << "  y=" << j << ": ";
                 for (int k = 0; k < size_k; ++k)
                 {
                     CNumber val = at(i, j, k);
-                    std::cout << "(" << val.real;
+                    cout << "(" << val.real;
                     if (val.imaginary < 0)
-                        std::cout << " - " << -val.imaginary;
+                        cout << " - " << -val.imaginary;
                     else
-                        std::cout << " + " << val.imaginary;
-                    std::cout << "i) ";
+                        cout << " + " << val.imaginary;
+                    cout << "i) ";
                 }
-                std::cout << std::endl;
+                cout << endl;
             }
-            std::cout << std::endl;
+            cout << endl;
         }
     }
 

@@ -35,7 +35,6 @@ int main()
         }
         else
         {
-            // Пластину обрезаем до размеров (k*M) x (k*N)
             long long cut_area = m * n - k * k * EM * EN;
             total_s_cut += cut_area;
             if (cut_area > max_s_cut)
@@ -45,9 +44,9 @@ int main()
         }
     }
 
-    cout << "а) Обработано: " << N << " пластинок(-ки)\n";
-    cout << "б) Максимальная площадь обрезки: " << max_s_cut << "\n";
-    cout << "в) Общая площадь обрезки: " << total_s_cut + total_s_thrown << "\n";
+    cout << "1) N =  " << N << '\n';
+    cout << "2) max_s_cut =  " << max_s_cut << '\n';
+    cout << "3) total_s_cut + total_s_thrown = " << total_s_cut + total_s_thrown << '\n';
 
     return 0;
 }

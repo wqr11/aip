@@ -2,6 +2,7 @@
 #include <cmath>
 
 using namespace std;
+
 int main()
 {
     int n;
@@ -11,21 +12,19 @@ int main()
 
     if (n == 0)
     {
-        cout << "NO" << std::endl;
+        cout << "NO" << endl;
         return 0;
     }
 
     bool was_one = false;
 
-    constexpr int intsize = sizeof(n);
-
-    for (int i = 0; i < intsize; i++)
+    for (int i = 0; i < sizeof(int) * 8; ++i)
     {
         if ((n >> i) & 1)
         {
             if (was_one)
             {
-                cout << "NO" << std::endl;
+                cout << "NO" << endl;
                 return 0;
             }
             else
@@ -35,7 +34,7 @@ int main()
         };
     }
 
-    cout << "YES" << std::endl;
+    cout << "YES" << endl;
 
     return 0;
 }

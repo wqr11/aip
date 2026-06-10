@@ -2,38 +2,26 @@
 #include <cmath>
 
 using namespace std;
-long double fact(int N, long double *arr)
+
+long double fact(int N)
 {
     long double r = 0.0;
 
-    if (N <= 2 || arr[N] != 0)
+    if (N <= 2)
     {
-        return arr[N];
+        return N;
     }
 
-    for (int i = 3; i <= N; i++)
-    {
-        if (arr[i] != 0)
-        {
-            r = arr[i];
-        }
-        else
-        {
-            arr[i] = arr[i - 1] * i;
-            r = arr[i];
-        }
-    }
-
-    return r;
+    return N * fact(N - 1);
 }
 
-long double series(double x, int N, long double *arr)
+long double series(double x, int N)
 {
     long double res = 0.0;
 
     for (int i = N; i > 0; --i)
     {
-        res += pow(x, 3 * i) * log(3 * x + i) / fact(i, arr);
+        res += pow(x, 3 * i) * log(3 * x + i) / fact(i);
     }
 
     return res;
@@ -96,7 +84,7 @@ int main()
     {
         int N = Ns[i];
 
-        long double s = series(x, N, arr);
+        long double s = series(x, N);
 
         sarr[i] = s;
 

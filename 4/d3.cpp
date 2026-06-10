@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    const long long TOTAL = 5345453567LL;
+    const long long TOTAL = 5345453567;
     long long collected = 0;
     double rate = 3452.0;
     int minutes = 0;

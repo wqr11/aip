@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <unordered_map>
 
 using namespace std;
 constexpr int GROUPS = 5;
@@ -12,8 +11,8 @@ int main()
 {
     srand(time(nullptr));
 
-    std::unordered_map<int, int> group_scores;
-    std::unordered_map<int, int> question_scores;
+    int group_scores[GROUPS] = {0};
+    int question_scores[QUESTIONS] = {0};
 
     for (int g = 0; g < GROUPS; ++g)
     {
@@ -23,7 +22,6 @@ int main()
         {
             for (int q = 0; q < QUESTIONS; ++q)
             {
-
                 int val = rand() & 1;
 
                 if (val)

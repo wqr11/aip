@@ -18,7 +18,7 @@ bool is_rt_angled(double a, double b, double c)
            fabs(c * c - (a * a + b * b)) < eps;
 }
 
-double hypot(double a, double b, double c)
+double hypotenuse(double a, double b, double c)
 {
     if (fabs(a * a - (b * b + c * c)) < 1e-8)
         return a;
@@ -53,7 +53,7 @@ int main()
     cout << "IS RIGHT ANGLED = " << is_rt << '\n';
 
     if (is_rt)
-        cout << "HYPOT = " << hypot(la, lb, lc) << '\n';
+        cout << "HYPOT = " << hypotenuse(la, lb, lc) << '\n';
     else
         cout << "SHORTEST SIDE = " << shortest_side(la, lb, lc) << '\n';
 

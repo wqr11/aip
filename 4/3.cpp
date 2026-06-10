@@ -1,14 +1,29 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <cmath>
 
 using namespace std;
+
+const int BOXES = 10;
+
+bool is_game_over(double money[])
+{
+    bool game_over = true;
+    for (int i = BOXES - 1; i >= 0; --i)
+    {
+        if (money[i] > 0)
+        {
+            game_over = false;
+        }
+    }
+    return game_over;
+}
 
 int main()
 {
     srand(time(nullptr));
 
-    const int BOXES = 10;
     double money[BOXES];
     double M;
 
@@ -20,7 +35,7 @@ int main()
 
     for (int i = 0; i < BOXES - 1; ++i)
     {
-        money[i] = rand() % (static_cast<int>(M / 10.0 - sum) * 100) / 100;
+        money[i] = rand() % ((int)max_money_per_box + 1);
         sum += money[i];
     }
 
@@ -60,14 +75,7 @@ int main()
         cout << "Игрок " << player << " выиграл: " << won << endl;
         ++player;
 
-        game_over = true;
-        for (int i = BOXES - 1; i >= 0; --i)
-        {
-            if (money[i] > 0)
-            {
-                game_over = false;
-            }
-        }
+        game_over = is_game_over(money);
     }
 
     cout

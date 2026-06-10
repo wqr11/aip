@@ -4,6 +4,7 @@
 #include <cmath>
 
 using namespace std;
+
 void init_array(int *arr, int size)
 {
     for (int i = 0; i < size; i++)
@@ -33,14 +34,14 @@ void init_array(double *arr, int size)
 template <typename T>
 void print_array(const T *arr, int size, const char *name)
 {
-    std::cout << name << " = [";
+    cout << name << " = [";
     for (int i = 0; i < size; i++)
     {
-        std::cout << arr[i];
+        cout << arr[i];
         if (i < size - 1)
-            std::cout << ", ";
+            cout << ", ";
     }
-    std::cout << "]" << '\n';
+    cout << "]" << '\n';
 }
 
 template <typename T>
@@ -84,8 +85,8 @@ int main()
     int sizeA = N + rand() % (M - N + 1);
     int sizeB = N + rand() % (M - N + 1);
 
-    std::cout << "Размер массива A: " << sizeA << '\n';
-    std::cout << "Размер массива B: " << sizeB << '\n';
+    cout << "Размер массива A: " << sizeA << '\n';
+    cout << "Размер массива B: " << sizeB << '\n';
 
     int *A = new int[sizeA];
     double *B = new double[sizeB];
@@ -93,14 +94,14 @@ int main()
     init_array(A, sizeA);
     init_array(B, sizeB);
 
-    std::cout << "Массивы A и B:" << '\n';
+    cout << "Массивы A и B:" << '\n';
     print_array(A, sizeA, "A");
     print_array(B, sizeB, "B");
 
     transform_array(A, sizeA, p);
     transform_array(B, sizeB, p);
 
-    std::cout << "Преобразованные массивы:\n";
+    cout << "Преобразованные массивы:\n";
     print_array(A, sizeA, "A");
     print_array(B, sizeB, "B");
 

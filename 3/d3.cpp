@@ -1,7 +1,7 @@
 #include <iostream>
-#include <cstring>
 
 using namespace std;
+
 int main()
 {
     int H;
@@ -12,8 +12,16 @@ int main()
         int padsize = (2 * H - i) / 2;
         char padding[padsize + 1] = {0};
         char points[i + 1] = {0};
-        memset(padding, ' ', padsize);
-        memset(points, '^', i);
+
+        for (int j = padsize - 1; j >= 0; --j)
+        {
+            padding[j] = ' ';
+        }
+
+        for (int j = i - 1; j >= 0; --j)
+        {
+            points[j] = '^';
+        }
 
         cout << padding << points << padding << '\n';
     }
